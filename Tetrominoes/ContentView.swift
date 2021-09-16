@@ -141,7 +141,6 @@ class SimpleARView: ARView {
         tEntity.isEnabled         = false
         lEntity.isEnabled         = false
         skewEntity.isEnabled      = false
-
     }
     
     func setupScene() {
