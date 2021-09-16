@@ -134,6 +134,14 @@ class SimpleARView: ARView {
         setupScene()
         
         setupEntities()
+
+        // Enable straight piece on startup.
+        straightEntity.isEnabled  = true
+        squareEntity.isEnabled    = false
+        tEntity.isEnabled         = false
+        lEntity.isEnabled         = false
+        skewEntity.isEnabled      = false
+
     }
     
     func setupScene() {
@@ -216,34 +224,30 @@ class SimpleARView: ARView {
         let orangeMaterial  = SimpleMaterial(color: .orange, isMetallic: false)
         let greenMaterial   = SimpleMaterial(color: .green, isMetallic: false)
         
+        // Create an relative origin entity for centering the root box of each tetromino.
+        let relativeOrigin = Entity()
+        relativeOrigin.position.y = boxSize / 2
+        cursor.addChild(relativeOrigin)
+        
         // Straight piece.
         straightEntity = ModelEntity(mesh: boxMesh, materials: [cyanMaterial])
-        straightEntity.position.y = boxSize / 2
-        cursor.addChild(straightEntity)
+        relativeOrigin.addChild(straightEntity)
         
         // Square piece.
         squareEntity = ModelEntity(mesh: boxMesh, materials: [yellowMaterial])
-        squareEntity.position.y = boxSize / 2
-        squareEntity.isEnabled  = false
-        cursor.addChild(squareEntity)
+        relativeOrigin.addChild(squareEntity)
         
         // T piece.
         tEntity = ModelEntity(mesh: boxMesh, materials: [purpleMaterial])
-        tEntity.position.y = boxSize / 2
-        tEntity.isEnabled  = false
-        cursor.addChild(tEntity)
+        relativeOrigin.addChild(tEntity)
         
         // L piece.
         lEntity = ModelEntity(mesh: boxMesh, materials: [orangeMaterial])
-        lEntity.position.y = boxSize / 2
-        lEntity.isEnabled  = false
-        cursor.addChild(lEntity)
+        relativeOrigin.addChild(lEntity)
         
         // Skew piece.
         skewEntity = ModelEntity(mesh: boxMesh, materials: [greenMaterial])
-        skewEntity.position.y = boxSize / 2
-        skewEntity.isEnabled  = false
-        cursor.addChild(skewEntity)
+        relativeOrigin.addChild(skewEntity)
         
         
         // TODO: Create tetrominoes //////////////////////////////////////
@@ -263,17 +267,21 @@ class SimpleARView: ARView {
 
         // ... create square piece.
         
-        
-        
+
+
+
         // ... create t piece.
-        
+
+
         
         
         // ... create l piece.
+
         
         
         
         // ... create skew piece.
+        
         
         
         
