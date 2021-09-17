@@ -40,31 +40,31 @@ struct ContentView : View {
                 Button {
                     viewModel.uiSignal.send(.straightSelected)
                 } label: {
-                    tetriminoIcon("straight", color: Color(red: 0, green: 1, blue: 1))
+                    tetrominoIcon("straight", color: Color(red: 0, green: 1, blue: 1))
                 }
                 
                 Button {
                     viewModel.uiSignal.send(.squareSelected)
                 } label: {
-                    tetriminoIcon("square", color: .yellow)
+                    tetrominoIcon("square", color: .yellow)
                 }
                 
                 Button {
                     viewModel.uiSignal.send(.tSelected)
                 } label: {
-                    tetriminoIcon("t", color: .purple)
+                    tetrominoIcon("t", color: .purple)
                 }
                 
                 Button {
                     viewModel.uiSignal.send(.lSelected)
                 } label: {
-                    tetriminoIcon("l", color: .orange)
+                    tetrominoIcon("l", color: .orange)
                 }
                 
                 Button {
                     viewModel.uiSignal.send(.skewSelected)
                 } label: {
-                    tetriminoIcon("skew", color: .green)
+                    tetrominoIcon("skew", color: .green)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
@@ -75,7 +75,7 @@ struct ContentView : View {
     }
     
     // Helper method for rendering icon.
-    func tetriminoIcon(_ image: String, color: Color) -> some View {
+    func tetrominoIcon(_ image: String, color: Color) -> some View {
         Image(image)
             .resizable()
             .padding(3)
